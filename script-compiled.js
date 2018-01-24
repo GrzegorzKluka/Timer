@@ -91,11 +91,13 @@ var Stopwatch = function (_React$Component) {
     }, {
         key: 'restart',
         value: function restart() {
-            this.times = {
-                minutes: 0,
-                seconds: 0,
-                miliseconds: 0
-            };
+            this.setState({
+                times: {
+                    minutes: 0,
+                    seconds: 0,
+                    miliseconds: 0
+                }
+            });
         }
     }, {
         key: 'render',
@@ -129,7 +131,7 @@ var Stopwatch = function (_React$Component) {
                         { onClick: function onClick(e) {
                                 return _this3.restart(e);
                             } },
-                        ' Restart '
+                        ' Reset '
                     ),
                     ' '
                 ),
@@ -159,4 +161,12 @@ function pad0(value) {
     return result;
 }
 
-ReactDOM.render(React.createElement('stopwatch', null), document.getElementById("app"));
+ReactDOM.render(React.createElement(
+    'div',
+    null,
+    ' ',
+    React.createElement(Stopwatch, null),
+    ' ',
+    React.createElement(Stopwatch, null),
+    ' '
+), document.getElementById("app"));

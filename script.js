@@ -63,13 +63,14 @@ class Stopwatch extends React.Component {
     }
 
     restart() {
-        this.times = {
-            minutes: 0,
-            seconds: 0,
-            miliseconds: 0
-        };
+        this.setState({
+            times: {
+                minutes: 0,
+                seconds: 0,
+                miliseconds: 0
+            }
+        })
     }
-
     render() {
         return ( <
             div className = 'app' >
@@ -86,7 +87,7 @@ class Stopwatch extends React.Component {
             } > Stop < /button> <
             button onClick = {
                 e => this.restart(e)
-            } > Restart < /button> < /
+            } > Reset < /button> < /
             nav > <
             div className = {
                 'stopwatch'
@@ -107,4 +108,4 @@ function pad0(value) {
     return result;
 }
 
-ReactDOM.render( < stopwatch / > , document.getElementById("app"));
+ReactDOM.render( < div > < Stopwatch / > < Stopwatch / > < /div> , document.getElementById("app"));
